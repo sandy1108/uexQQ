@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<uexplugins>
+    <plugin uexName="uexQQ" version="3.0.3" build = "3">
+		<info>3:新增isQQInstalled检查QQ客户端是否已安装的方法</info>
+        <build>2:修改cbLogin方法参数</build>
+        <build>1:AndroidManifest.xml中添加必要权限</build>
+        <build>0:QQ登录及分享插件</build>
+    </plugin>
+</uexplugins>
