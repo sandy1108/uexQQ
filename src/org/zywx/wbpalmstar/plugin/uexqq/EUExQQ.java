@@ -58,9 +58,7 @@ public class EUExQQ extends EUExBase {
         mAppid = params[0];
         Log.i(TAG, "login->mAppid = " + mAppid);
         initTencent(mAppid);
-        if(!mTencent.isSessionValid()){
-            mTencent.login((Activity )mContext, "all", loginListener);
-        }
+        mTencent.login((Activity )mContext, "all", loginListener);
     }
 
     private void initTencent(String appId){
