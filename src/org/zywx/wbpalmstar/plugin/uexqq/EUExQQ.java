@@ -108,23 +108,32 @@ public class EUExQQ extends EUExBase {
     IUiListener qqShareListener = new IUiListener() {
         @Override
         public void onCancel() {
-            //if (shareType != QQShare.SHARE_TO_QQ_TYPE_IMAGE) {
-            //Util.toastMessage(QQShareActivity.this, "onCancel: ");
-            //}
+            HashMap<String,Object> result=new HashMap<String, Object>();
+            result.put("errCode",EUExCallback.F_C_FAILED);
+            result.put("errStr","user cancel");
+            JSONObject jsonObject=new JSONObject(result);
             jsCallbackAsyn(CB_SHARE_QQ, 0, EUExCallback.F_C_INT,
-                    String.valueOf(EUExCallback.F_C_FAILED));
+                    jsonObject.toString());
         }
         @Override
         public void onComplete(Object response) {
+            HashMap<String,Object> result=new HashMap<String, Object>();
+            result.put("errCode",EUExCallback.F_C_SUCCESS);
+            result.put("errStr",response);
+            JSONObject jsonObject=new JSONObject(result);
             Log.i(TAG, "qqShareListener->onComplete->response = " + response);
             jsCallbackAsyn(CB_SHARE_QQ, 0, EUExCallback.F_C_INT,
-                    String.valueOf(EUExCallback.F_C_SUCCESS));
+                    jsonObject.toString());
         }
         @Override
         public void onError(UiError e) {
+            HashMap<String,Object> result=new HashMap<String, Object>();
+            result.put("errCode",EUExCallback.F_C_FAILED);
+            result.put("errStr",e.errorMessage);
+            JSONObject jsonObject=new JSONObject(result);
             Log.i(TAG, "qqShareListener->onError = " + e.errorMessage);
             jsCallbackAsyn(CB_SHARE_QQ, 0, EUExCallback.F_C_INT,
-                    String.valueOf(EUExCallback.F_C_FAILED));
+                    jsonObject.toString());
         }
     };
 
