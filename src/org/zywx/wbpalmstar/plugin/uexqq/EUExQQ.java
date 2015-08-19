@@ -225,19 +225,19 @@ public class EUExQQ extends EUExBase {
         }
     }
 
-    private String getImageUrl(String url) {
-        if(url.startsWith(BUtility.F_HTTP_PATH)){
-            return url;
-        }
-        String imgPath = BUtility.makeRealPath(
-                BUtility.makeUrl(mBrwView.getCurrentUrl(), url),
-                mBrwView.getCurrentWidget().m_widgetPath,
-                mBrwView.getCurrentWidget().m_wgtType);
-        if(imgPath.startsWith("/")){
-            return imgPath;
-        }
-        return Utils.copyImage(mContext, imgPath);
-    }
+	private String getImageUrl(String url) {
+		if (url.startsWith(BUtility.F_HTTP_PATH)) {
+			return url;
+		}
+		String imgPath = BUtility.makeRealPath(
+				BUtility.makeUrl(mBrwView.getCurrentUrl(), url),
+				mBrwView.getCurrentWidget().m_widgetPath,
+				mBrwView.getCurrentWidget().m_wgtType);
+		if (imgPath.startsWith("/") && !imgPath.startsWith("/data")) {
+			return imgPath;
+		}
+		return Utils.copyImage(mContext, imgPath);
+	}
 
     private void doToQQShare(Bundle params) {
         mTencent.shareToQQ((Activity)mContext, params, qqShareListener);
