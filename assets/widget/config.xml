@@ -13,4 +13,7 @@
 	<bgcolor>#fefefe</bgcolor>
 	<widgetOne version="[widgetOneVersion]" />
 	<orientation>15</orientation>
+    <config desc="uexQQ" type="KEY">
+        <param name="$UEXQQ_APPID$" platform="Android" value="tencent222222"/>
+    </config>
 </widget>
