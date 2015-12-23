@@ -26,7 +26,7 @@
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
 
-                <data android:scheme="tencent222222" />
+                <data android:scheme="$UEXQQ_APPID$" />
             </intent-filter>
         </activity>
 
